@@ -11,25 +11,13 @@ app.use(express.static("public"));
 
 app.use("/user",userRouter);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.get("/").get(async(req,res)=>{
+    return res.status(200).json({
+       message: "Hello User" 
+    })
+})
 
 app.use((req,res,err,next)=>{
-    console.log("Error occured")
     throw new ApiError(500,"Internal Server Error");
 })
 export {app};
