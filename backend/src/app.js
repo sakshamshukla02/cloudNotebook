@@ -5,7 +5,11 @@ import {ApiError} from "./utils/apiError.js";
 import userRouter from "./routes/user.route.js"
 
 const app=express();
-app.use(cors());
+const corsOptions = {
+    origin: ['https://your-frontend.vercel.app', 'http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  };
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static("public"));
 
